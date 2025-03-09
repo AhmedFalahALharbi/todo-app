@@ -1,59 +1,92 @@
-# TodoApp
+# Angular Todo App with NgRx
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+A simple to-do list application built with Angular and NgRx for state management. This project demonstrates the implementation of Reactive Forms and NgRx for a full-featured task management application.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Add tasks with validation
+- Mark tasks as completed with visual feedback
+- Delete tasks
+- State management with NgRx
+- Responsive design
 
-```bash
-ng serve
+## Technologies Used
+
+- Angular (latest version)
+- NgRx for state management
+- Reactive Forms for form handling
+- TypeScript
+- CSS for styling
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── todo-form/
+│   │   │   ├── todo-form.component.ts
+│   │   │   ├── todo-form.component.html
+│   │   │   └── todo-form.component.css
+│   │   └── todo-list/
+│   │       ├── todo-list.component.ts
+│   │       ├── todo-list.component.html
+│   │       └── todo-list.component.css
+│   ├── state/
+│   │   └── todo/
+│   │       ├── todo.model.ts
+│   │       ├── todo.actions.ts
+│   │       ├── todo.reducer.ts
+│   │       └── todo.selectors.ts
+│   ├── app.component.ts
+│   ├── app.component.html
+│   ├── app.component.css
+│   ├── app.config.ts
+│   └── app.routes.ts
+└── main.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Setup Instructions
 
-## Code scaffolding
+1. **Clone the repository:**
+   ```
+   git clone <repository-url>
+   cd angular-todo-app
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Install dependencies:**
+   ```
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+3. **Run the development server:**
+   ```
+   ng serve
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. **Open your browser:**
+   Navigate to `http://localhost:4200/`
 
-```bash
-ng generate --help
-```
+## Implementation Details
 
-## Building
+### NgRx Implementation
 
-To build the project run:
+The application uses NgRx for state management with the following components:
 
-```bash
-ng build
-```
+- **Actions:** Define what actions can be performed (add, toggle, delete tasks)
+- **Reducer:** Handles state changes based on dispatched actions
+- **Selectors:** Extract specific pieces of state for components to use
+- **State:** Defines the structure of the application state
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Form Implementation
 
-## Running unit tests
+The Todo form is implemented using Angular's Reactive Forms:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- FormGroup for the overall form structure
+- FormControl for individual form fields
+- Validators for field validation (required field)
+- Form submission handling
 
-```bash
-ng test
-```
+## License
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT License

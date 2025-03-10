@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, TodoFormComponent, TodoListComponent,ReactiveFormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-app';
+  title = 'To-Do List App';
 }

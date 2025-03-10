@@ -1,0 +1,21 @@
+<div class="todo-list">
+  <div *ngIf="(todos$ | async)?.length === 0" class="empty-state">
+    No tasks yet. Add a task to get started!
+  </div>
+
+  <ng-container *ngIf="todos$ | async as todos">
+    <ul *ngIf="todos.length > 0">
+      <li *ngFor="let todo of todos" [class.completed]="todo.completed">
+        <div class="todo-item">
+          <input 
+            type="checkbox" 
+            [checked]="todo.completed" 
+            (change)="toggleComplete(todo.id)" 
+          />
+          <span [class.strike-through]="todo.completed">{{ todo.text }}</span>
+          <button (click)="removeTodo(todo.id)" class="delete-btn">🗑 Delete</button>
+        </div>
+      </li>
+    </ul>
+  </ng-container>
+</div>

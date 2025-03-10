@@ -1,0 +1,9 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" formControlName="text" placeholder="Add a new task..." />
+      <button type="submit" [disabled]="todoForm.invalid">Add</button>
+    </div>
+    <div *ngIf="todoForm.get('text')?.invalid && todoForm.get('text')?.touched">
+      <small *ngIf="todoForm.get('text')?.errors?.['required']">Task cannot be empty!</small>
+    </div>
+  </form>
